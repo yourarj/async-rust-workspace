@@ -13,19 +13,27 @@ fn main() {
     // given future complete it's excution
     let val = block_on(fut);
 
-    // naive approach could be as following
-    // but this would be still synchronous
-    // We will be doing synchronously hello -> watching -> snacking
-    // Is there any other way to invoke future?
-    block_on(watch_favourite_show());
-    block_on(have_favourite_snacks());
-
     println!("Value returned from the future is {:01}", val);
 }
 
 async fn hello_async_world() -> i32 {
     println!("Hello ASYNC world");
     // return my fancy integer
+
+    // we can also use .await on any type that implements Future trait
+    // PROVIDED the method where are awaiting for compeletion of future
+    // must be async too.
+    //
+    // Unlike block_on(), .await will not block current thread.
+    // Instead it'll wait asynchronously waits for completion.
+    // This approach allows other tasks to run if current task is not able to progress
+    // e.g. as in following example
+    watch_favourite_show().await;
+    have_favourite_snacks().await;
+
+    // NOTE watching and having snack is synchronous
+    // untill you complete watching 🎥 the show you can't have snacks 🥲
+
     32
 }
 
