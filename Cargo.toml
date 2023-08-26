@@ -1,0 +1,3 @@
+[workspace]
+members = ["async-with-futures-crate"]
+resolver = "2"
