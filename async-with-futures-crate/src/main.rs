@@ -1,4 +1,4 @@
-use futures::executor::block_on;
+use futures::{executor::block_on, join};
 
 fn main() {
     println!("Hello, world!");
@@ -33,6 +33,13 @@ async fn hello_async_world() -> i32 {
 
     // NOTE watching and having snack is synchronous
     // untill you complete watching 🎥 the show you can't have snacks 🥲
+
+    // RATHER
+    // It would be fun if we can have our snacks while watching movie would be great
+    // 😁😎
+
+    // We could run both of them and wait for each futures completion
+    join!(watch_favourite_show(), have_favourite_snacks());
 
     32
 }
