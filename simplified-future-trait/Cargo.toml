@@ -1,7 +1,6 @@
 [package]
-name = "async-with-futures-crate"
+name = "simplified-future-trait"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-futures = "0.3.28"

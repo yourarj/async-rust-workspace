@@ -141,6 +141,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "simplified-future-trait"
+version = "0.1.0"
+
+[[package]]
 name = "slab"
 version = "0.4.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
