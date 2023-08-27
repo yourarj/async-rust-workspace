@@ -18,7 +18,7 @@ trait SimpleFutureTrait {
 }
 
 /// Represents state of future computation
-enum Poll<T> {
+pub enum Poll<T> {
     /// Future completed computation and result is READY
     Ready(T),
     /// Future is under progress
